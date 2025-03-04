@@ -4,7 +4,7 @@ import AppleProvider from "next-auth/providers/apple";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 
-export const authOptions: NextAuthOptions = {
+const options: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -27,4 +27,6 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
-}; 
+};
+
+export default options; 
