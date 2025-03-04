@@ -32,23 +32,46 @@ export default function TodoPage() {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Todo List</h1>
-      <form onSubmit={addTodo} className="mb-4">
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '1rem' }}>
+      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Todo List</h1>
+      <form onSubmit={addTodo} style={{ marginBottom: '1rem' }}>
         <input
           type="text"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
           placeholder="Add a new todo"
-          className="border p-2 mr-2"
+          style={{
+            padding: '0.5rem',
+            border: '1px solid #ccc',
+            borderRadius: '0.25rem',
+            marginRight: '0.5rem'
+          }}
         />
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        <button
+          type="submit"
+          style={{
+            backgroundColor: '#0070f3',
+            color: 'white',
+            border: 'none',
+            padding: '0.5rem 1rem',
+            borderRadius: '0.25rem',
+            cursor: 'pointer'
+          }}
+        >
           Add
         </button>
       </form>
-      <ul>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {todos.map((todo) => (
-          <li key={todo.id} className="border p-2 mb-2">
+          <li
+            key={todo.id}
+            style={{
+              padding: '0.5rem',
+              border: '1px solid #eee',
+              marginBottom: '0.5rem',
+              borderRadius: '0.25rem'
+            }}
+          >
             {todo.title}
           </li>
         ))}
